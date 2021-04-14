@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const cors = require('cors')
 class Server{
     constructor(){
         this.app = express();
@@ -10,7 +11,11 @@ class Server{
         this.routes();
     }
     middlewares(){
-        this.app.use(express.static('public'))
+        //cors
+        this.app.use(cors());
+
+        //Load data from static directory
+        this.app.use(express.static('public'));
     }
     routes(){
         this.app.get('/home',(req, res) =>{
