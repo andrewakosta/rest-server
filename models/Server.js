@@ -4,7 +4,7 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-
+        this.usersPath = '/api/users'
         //Middlewares
         this.middlewares();
 
@@ -18,9 +18,7 @@ class Server{
         this.app.use(express.static('public'));
     }
     routes(){
-        this.app.get('/home',(req, res) =>{
-            res.send('Hello from home endpoint')
-        })
+       this.app.use(this.usersPath, require('../routes/users'));
     }
 
     init(){
