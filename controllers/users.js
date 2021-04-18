@@ -1,9 +1,13 @@
+const User = require("../models/User");
+
 exports.userGet = (req, res)=>{
     res.json({oro:"false"})
 }
-exports.userPost = (req, res)=>{
+exports.createUser = (req, res)=>{
     const body = req.body;
-    res.json({oro:"false",request:body})
+    const user = new User(body)
+    user.save();
+    res.json({user})
 }
 exports.userPut= (req, res)=>{
     const queryParams = req.query;
