@@ -3,7 +3,7 @@
 Api REST
 
 
-
+This project belong to Fernado's course which contains a complete example of how to create a rest-server with all best practices.
 
 
 
